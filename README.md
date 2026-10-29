@@ -14,17 +14,6 @@ Sphinx documentation sources (`docs/*.md`, `docs/api.rst`, `docs/conf.py`).
 Generated JSON results and HTML files are deliberately absent. Run the commands
 below to see `results/`, `report/` and `docs/_build/` appear.
 
-## Published documentation
-
-Documentation site: https://yurapas.github.io/textlab-workshop/
-
-The `Documentation` workflow in `.github/workflows/docs.yml` builds Sphinx on
-pull requests to `main` and publishes successful builds from `main` to GitHub
-Pages. In your own template copy, enable **Settings > Pages > Source > GitHub
-Actions**, then run **Actions > Documentation > Run workflow** on `main`.
-Repository settings are not copied with the template. The workflow publishes
-documentation, not the generated document-analysis report.
-
 ## Requirements
 
 Python 3.11 or newer. Core analysis uses only the standard library.
