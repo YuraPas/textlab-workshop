@@ -3,10 +3,54 @@
 A small Python program for analyzing real documents and creating an offline
 HTML report. Prepared for the NLTU workshop inspired by CodeRefinery.
 
+## Create your own copy
+
+On GitHub, select **Use this template > Create a new repository**. Choose your
+account as the owner, create the repository, then clone your copy and open its
+folder in VS Code.
+
+The template includes Python code, tests, real input documents and complete
+Sphinx documentation sources (`docs/*.md`, `docs/api.rst`, `docs/conf.py`).
+Generated JSON results and HTML files are deliberately absent. Run the commands
+below to see `results/`, `report/` and `docs/_build/` appear.
+
 ## Requirements
 
 Python 3.11 or newer. Core analysis uses only the standard library.
 Tested interpreter and dependency versions are recorded in `VERIFICATION.md`.
+
+## Windows / PowerShell
+
+Create the environment once; if `.venv` already exists, skip the first command.
+
+```powershell
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements-dev.txt -r requirements-docs.txt
+python -m pytest -v
+```
+
+Generate analysis results, then combine them into a report:
+
+```powershell
+python analyze.py documents/flask.md --output results/flask.json
+python analyze.py documents/click.md --output results/click.json
+python analyze.py documents/jinja.md --output results/jinja.json
+python report.py --input results --output report/index.html
+Start-Process .\report\index.html
+```
+
+Build the documentation separately:
+
+```powershell
+python -m sphinx -b html docs docs/_build/html
+Start-Process .\docs\_build\html\index.html
+```
+
+Rebuilding documentation does not rerun the analysis. After changing source
+files, rerun the relevant command and refresh your browser. For a strict check
+that rereads documentation and fails on warnings, run
+`python -m sphinx -E -b html -W docs docs/_build/html`.
 
 ## Windows / Git Bash
 
