@@ -1,14 +1,15 @@
 # Optional steps 3 and 4
 
-These are inactive examples. They are not a deployed workflow or a tested
-container. First finish local analysis and the Sphinx exercises.
+The active Pages workflow is now in `.github/workflows/docs.yml`.
+The files in this directory remain teaching examples; the Docker container
+has not been runtime-verified. First finish local analysis and Sphinx exercises.
 
 ## 3. GitHub Pages
 
-1. Publish this repository to your GitHub account (not performed by this starter).
+1. Create your own repository using the public template and clone your copy.
 2. In Settings > Pages choose GitHub Actions as the source.
-3. Copy `next_steps/docs.yml` to `.github/workflows/docs.yml`.
-4. Commit and push the file. Open Actions > Documentation.
+3. Inspect the existing `.github/workflows/docs.yml`; no copy is needed for the current template.
+4. Push a change to main or use Actions > Documentation > Run workflow.
 5. The build job installs Sphinx and creates HTML. The deploy job publishes
    the uploaded Pages artifact after a successful build on main.
 6. On pull requests only the documentation build runs; deployment is skipped.
